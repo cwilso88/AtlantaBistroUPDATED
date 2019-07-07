@@ -1,0 +1,39 @@
+#Reviews {
+    padding: 100px 0;
+    text-align: right;
+    
+
+    h4 {
+        font-weight: 600; 
+        font-size: 1.075rem;
+        margin-bottom: 2rem;
+    }
+
+    .author {
+        font-size: 1rem;
+        color: grey;
+        font-weight: 300;
+        text-transform: capitalize;
+        margin-bottom: 2rem;
+        
+        strong {
+            font-weight: 700;
+            color: black;
+        }
+    }
+
+    .arrows {
+        .fa-arrow-left,
+        .fa-arrow-right {
+            font-size: 1.5rem;
+            padding: 20px 15px;
+            color: grey;
+            cursor: pointer;
+        }
+
+        .fa-arrow-left.ready,
+        .fa-arrow-right.ready {
+            color: black;
+        }
+    }
+}

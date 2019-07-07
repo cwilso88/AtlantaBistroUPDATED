@@ -1,0 +1,41 @@
+#TopImg {
+    background: black;
+    position: relative;
+    height: 500px;
+    background: linear-gradient(135deg, rgba(0,0,0,.2) 0,#000 100%);
+    background-image: linear-gradient(135deg, rgba(0,0,0,.2) 0,#000 100%), url('https://www.boydsgrillandwinebar.co.uk/wp-content/uploads/2018/08/rxx6743cropped-2048x1299.jpg');
+    background-position: center;
+    background-size: cover;
+    .title {
+        text-align: right;
+        padding: 200px 0 80px;
+        h1 {
+            font-family: $displayFont;
+            text-transform: uppercase;
+            color: white;
+            font-weight: 300;
+            font-size: 4rem;
+        }
+        h5 {
+            text-transform: uppercase;
+            color: white;
+            font-weight: 300;
+        }
+    }
+    .contact-info {
+        text-align: right;
+        color: white;
+        font-size: .8rem;
+        line-height: 1.5rem;
+        strong {
+            font-weight: bold;
+        }
+        .booking {
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+    }
+}

@@ -1,0 +1,75 @@
+#SpecialMenu {
+    padding: 100px 0;
+    background: linear-gradient(135deg, rgba(0,0,0,.2) 0,#000 100%);
+    background-image: url('https://static1.squarespace.com/static/54515d1de4b0f218590483e7/t/584f42d1d2b857720090c705/1481589465360/2016-12-01_Blog-011_3346.jpg');
+    background-position: center;
+    background-repeat: repeat;
+    h5, h2 {
+        text-align: center;
+    }
+
+    .box {
+        background: white;
+        padding: 20px;
+        margin-bottom: 60px;
+        .box-img {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, rgba(0,0,0,.2) 0,#000 100%);
+            background-image: url('https://www.lovecourmayeur.com/sites/default/files/nodeimages/tomates.jpg?itok=z2zIvxHA');
+            background-position: center;
+            background-size: cover;
+            position: relative;
+            margin-bottom: 70px;
+        }
+
+        .price-circle {
+            position: absolute;
+            box-sizing: border-box;
+            bottom: 0;
+            margin: 0 auto;
+            font-family: $displayFont;
+            font-size: 2.5rem;
+            border-radius: 50%;
+            background: white;
+            height: 100px;
+            width: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            left: 50%;
+            transform: translate(-50%, 50%);
+            box-shadow: 0px 0px 0px 10px rgba(255,255,255,0.41);
+        }
+
+        .title {
+            display: block;
+            font-weight: 600;
+            font-size: .9rem;
+            text-align: center;
+        }
+        .details {
+            font-weight: 300;
+            font-size: .8rem;
+            text-align: center;
+            line-height: 2;
+            margin: 0;
+        }
+        
+    }
+
+    .boxes {
+        padding-bottom: 50px;
+    }
+
+    a.link {
+        color: #000;
+        font-family: $displayFont;
+        text-transform: uppercase;
+        text-decoration: none;
+        text-align: center;
+        display: block;
+
+    }
+    
+}

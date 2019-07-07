@@ -1,0 +1,39 @@
+footer {
+    padding: 100px 0;
+    background: #131A22;
+    text-align: center;
+
+    nav {
+        margin: 0 auto 50px;
+        display: inline-block;
+
+        a {
+            color: white;
+            display: inline-block;
+            padding: 10px 20px 10px 0;
+            text-decoration: none;
+        }
+    }
+
+    .social-media {
+        margin: 0 0 50px;
+        padding: 0;
+
+
+        li {
+            display: inline-block;
+            padding: 20px;
+            font-size: 1.1rem;
+
+            a {
+                color: white;
+                &:hover {
+                    color: rgba(202, 4, 2, .8);
+                }
+            }
+        }
+    }
+    .copyright {
+        color: grey;
+    }
+}

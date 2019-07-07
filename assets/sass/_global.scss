@@ -1,0 +1,45 @@
+h2 {
+    font-size: 3rem;
+    font-family: $displayFont;
+    text-transform: capitalize;
+    margin: .5rem 0 3rem;
+}
+
+h5 {
+    color: grey;
+    font-size: .7rem;
+    margin: .5rem 0 1rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+p {
+    font-size: 1rem;
+    color: grey;
+    line-height: 2;
+    margin: 0.5rem 0 3rem;
+
+}
+
+strong {
+    font-weight: 600;
+}
+
+em {
+    font-style: italic;
+}
+
+a {
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+        color: rgba(202, 4, 2, .8);
+    }
+}
+
+.texturebg {
+    background: linear-gradient(135deg, rgba(0,0,0,.2) 0,#000 100%);
+    background-image: url('https://static1.squarespace.com/static/54515d1de4b0f218590483e7/t/584f42d1d2b857720090c705/1481589465360/2016-12-01_Blog-011_3346.jpg');
+    background-position: center;
+    background-repeat: repeat;
+}
