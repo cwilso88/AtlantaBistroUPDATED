@@ -9,7 +9,7 @@ webpackJsonp([0],[
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var reviewLeftClicked = function reviewLeftClicked(state) {
+var reviewLeft = function reviewLeft(state) {
 
   return {
     reviewStatus: {
@@ -18,7 +18,7 @@ var reviewLeftClicked = function reviewLeftClicked(state) {
   };
 };
 
-var reviewRightClicked = function reviewRightClicked(state) {
+var reviewRight = function reviewRight(state) {
 
   return {
     reviewStatus: {
@@ -28,8 +28,8 @@ var reviewRightClicked = function reviewRightClicked(state) {
 };
 
 var actions = exports.actions = {
-  reviewLeftClicked: reviewLeftClicked,
-  reviewRightClicked: reviewRightClicked
+  reviewLeft: reviewLeft,
+  reviewRight: reviewRight
 };
 
 /***/ }),
@@ -187,7 +187,7 @@ var globalState = exports.globalState = {
   quoteInfo: quoteInfo,
   reviewsInfo: reviewsInfo,
   reviewStatus: {
-    currentReview: 0
+    currentReview: 2
   }
 };
 
@@ -610,47 +610,55 @@ exports.default = Reviews;
 
 var _hyperapp = __webpack_require__(0);
 
+var _actions = __webpack_require__(1);
+
+var _actions2 = _interopRequireDefault(_actions);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 function Reviews(_ref) {
   var state = _ref.state,
       actions = _ref.actions;
 
   console.log(state.globalState.reviewsInfo[state.globalState.reviewStatus.currentReview].company);
+  var globalState = state.globalState;
+
 
   var currentReview = function currentReview() {
     return (0, _hyperapp.h)(
-      "div",
+      'div',
       null,
       (0, _hyperapp.h)(
-        "h5",
-        { className: "reviews-title" },
-        "Reviews"
+        'h5',
+        { className: 'reviews-title' },
+        'Reviews'
       ),
       (0, _hyperapp.h)(
-        "h2",
+        'h2',
         null,
         state.globalState.reviewsInfo[state.globalState.reviewStatus.currentReview].company
       ),
       (0, _hyperapp.h)(
-        "h4",
+        'h4',
         null,
         state.globalState.reviewsInfo[state.globalState.reviewStatus.currentReview].highlight
       ),
       (0, _hyperapp.h)(
-        "p",
+        'p',
         null,
         state.globalState.reviewsInfo[state.globalState.reviewStatus.currentReview].review
       ),
       (0, _hyperapp.h)(
-        "div",
-        { className: "author" },
+        'div',
+        { className: 'author' },
         (0, _hyperapp.h)(
-          "strong",
+          'strong',
           null,
           state.globalState.reviewsInfo[state.globalState.reviewStatus.currentReview].author
         ),
-        "- ",
+        '- ',
         (0, _hyperapp.h)(
-          "em",
+          'em',
           null,
           state.globalState.reviewsInfo[state.globalState.reviewStatus.currentReview].authorInfo
         )
@@ -658,45 +666,45 @@ function Reviews(_ref) {
     );
   };
 
-  var leftClickBTN = function leftClickBTN() {
-    if (state.reviewStatus.currentReview == 0) {
+  var leftClick = function leftClick() {
+    if (state.globalState.reviewStatus.currentReview == 0) {
       console.log('do nothing');
     } else {
-      actions.reviewLeftClicked();
+      actions.reviewLeft();
     }
   };
 
-  var rightClickBTN = function rightClickBTN() {
+  var rightClick = function rightClick() {
     if (state.globalState.reviewStatus.currentReview == state.globalState.reviewsInfo.length - 1) {
       console.log('do nothing');
     } else {
-      actions.reviewRightClicked();
+      actions.reviewRight();
     }
   };
-  console.log(actions);
+  console.log(globalState.reviewStatus.currentReview);
   return (0, _hyperapp.h)(
-    "section",
-    { id: "Reviews" },
+    'section',
+    { id: 'Reviews' },
     (0, _hyperapp.h)(
-      "div",
-      { className: "container" },
+      'div',
+      { className: 'container' },
       (0, _hyperapp.h)(
-        "div",
-        { className: "row" },
+        'div',
+        { className: 'row' },
         (0, _hyperapp.h)(
-          "div",
-          { className: "col-md-8 side-img" },
-          (0, _hyperapp.h)("img", { src: "https://image.freepik.com/free-photo/chef-with-his-arms-crossed-over-white-background_1368-2792.jpg" })
+          'div',
+          { className: 'col-md-8 side-img' },
+          (0, _hyperapp.h)('img', { src: 'https://image.freepik.com/free-photo/chef-with-his-arms-crossed-over-white-background_1368-2792.jpg' })
         ),
         (0, _hyperapp.h)(
-          "div",
-          { className: "col-md-4" },
+          'div',
+          { className: 'col-md-4' },
           currentReview(),
           (0, _hyperapp.h)(
-            "div",
-            { className: "arrows" },
-            (0, _hyperapp.h)("i", { onClick: leftClickBTN, "class": "fa fa-arrow-left " + (state.globalState.reviewStatus.currentReview > 0 ? 'ready' : '') }),
-            (0, _hyperapp.h)("i", { onclick: rightClickBTN, "class": "fa fa-arrow-right " + (state.globalState.reviewStatus.currentReview == state.globalState.reviewsInfo.length - 1 ? '' : 'ready') })
+            'div',
+            { className: 'arrows' },
+            (0, _hyperapp.h)('i', { onClick: leftClick, 'class': 'fa fa-arrow-left ' + (state.globalState.reviewStatus.currentReview > 0 ? 'ready' : '') }),
+            (0, _hyperapp.h)('i', { onclick: rightClick, 'class': 'fa fa-arrow-right ' + (state.globalState.reviewStatus.currentReview == state.globalState.reviewsInfo.length - 1 ? '' : 'ready') })
           )
         )
       )
