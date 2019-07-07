@@ -3,7 +3,8 @@ import {h, app} from 'hyperapp';
 
 export default function Reviews({state, actions}) {
       console.log(state.globalState.reviewsInfo[state.globalState.reviewStatus.currentReview].company)
-  var currentReview = function(){
+  
+    const currentReview = () => {
     return (
       <div>
         <h5 className="reviews-title">Reviews</h5>

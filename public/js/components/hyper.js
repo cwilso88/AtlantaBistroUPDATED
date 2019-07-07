@@ -615,6 +615,7 @@ function Reviews(_ref) {
       actions = _ref.actions;
 
   console.log(state.globalState.reviewsInfo[state.globalState.reviewStatus.currentReview].company);
+
   var currentReview = function currentReview() {
     return (0, _hyperapp.h)(
       "div",
