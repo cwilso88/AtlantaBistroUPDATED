@@ -623,6 +623,8 @@ function Reviews(_ref) {
   console.log(state.globalState.reviewsInfo[state.globalState.reviewStatus.currentReview].company);
   var globalState = state.globalState;
 
+  var review = state.globalState.reviewStatus.currentReview;
+  var reviewIndex = state.globalState.reviewsInfo.length;
 
   var currentReview = function currentReview() {
     return (0, _hyperapp.h)(
@@ -667,7 +669,7 @@ function Reviews(_ref) {
   };
 
   var leftClick = function leftClick() {
-    if (state.globalState.reviewStatus.currentReview == 0) {
+    if (review == 0) {
       console.log('do nothing');
     } else {
       actions.reviewLeft();
@@ -675,13 +677,13 @@ function Reviews(_ref) {
   };
 
   var rightClick = function rightClick() {
-    if (state.globalState.reviewStatus.currentReview == state.globalState.reviewsInfo.length - 1) {
+    if (review == reviewIndex - 1) {
       console.log('do nothing');
     } else {
       actions.reviewRight();
     }
   };
-  console.log(globalState.reviewStatus.currentReview);
+  console.log(review);
   return (0, _hyperapp.h)(
     'section',
     { id: 'Reviews' },
@@ -703,8 +705,8 @@ function Reviews(_ref) {
           (0, _hyperapp.h)(
             'div',
             { className: 'arrows' },
-            (0, _hyperapp.h)('i', { onClick: leftClick, 'class': 'fa fa-arrow-left ' + (state.globalState.reviewStatus.currentReview > 0 ? 'ready' : '') }),
-            (0, _hyperapp.h)('i', { onclick: rightClick, 'class': 'fa fa-arrow-right ' + (state.globalState.reviewStatus.currentReview == state.globalState.reviewsInfo.length - 1 ? '' : 'ready') })
+            (0, _hyperapp.h)('i', { onClick: leftClick, 'class': 'fa fa-arrow-left ' + (review > 0 ? 'ready' : '') }),
+            (0, _hyperapp.h)('i', { onclick: rightClick, 'class': 'fa fa-arrow-right ' + (review == reviewIndex - 1 ? '' : 'ready') })
           )
         )
       )

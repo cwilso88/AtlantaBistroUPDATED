@@ -5,6 +5,8 @@ import actions from '../actions/actions';
 export default function Reviews({state, actions}) {
       console.log(state.globalState.reviewsInfo[state.globalState.reviewStatus.currentReview].company)
       const { globalState } = state;
+      const review = state.globalState.reviewStatus.currentReview;
+      const reviewIndex = state.globalState.reviewsInfo.length;
 
     const currentReview = () => {
     return (
@@ -20,7 +22,7 @@ export default function Reviews({state, actions}) {
   }
 
   const leftClick = () => {
-    if(state.globalState.reviewStatus.currentReview == 0 ) {
+    if(review == 0 ) {
       console.log('do nothing')
     } else {
       actions.reviewLeft();
@@ -28,13 +30,13 @@ export default function Reviews({state, actions}) {
   }
 
   const rightClick = () => {
-    if(state.globalState.reviewStatus.currentReview == (state.globalState.reviewsInfo.length - 1)) {
+    if(review == (reviewIndex - 1)) {
       console.log('do nothing')
     } else {
       actions.reviewRight();
     }
   }
-  console.log(globalState.reviewStatus.currentReview);
+  console.log(review);
     return (
       <section id="Reviews">
         <div className="container">
@@ -45,8 +47,8 @@ export default function Reviews({state, actions}) {
             <div className="col-md-4">
                 {currentReview()}
                 <div className="arrows">
-                  <i onClick={leftClick} class={`fa fa-arrow-left ${(state.globalState.reviewStatus.currentReview > 0) ? 'ready' : ''}`}></i>
-                  <i onclick={rightClick} class={`fa fa-arrow-right ${(state.globalState.reviewStatus.currentReview == (state.globalState.reviewsInfo.length - 1)) ? '' : 'ready'}`}></i>
+                  <i onClick={leftClick} class={`fa fa-arrow-left ${(review > 0) ? 'ready' : ''}`}></i>
+                  <i onclick={rightClick} class={`fa fa-arrow-right ${(review == (reviewIndex - 1)) ? '' : 'ready'}`}></i>
               </div>
             </div>
           </div>
