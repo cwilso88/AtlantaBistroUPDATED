@@ -1,4 +1,5 @@
 import {h, app} from 'hyperapp';
+import { globalState } from '../state/globalState';
 import {reviewLeft, reviewRight} from '../actions/actions';
 
 
@@ -9,7 +10,38 @@ export default function Reviews({state, actions}) {
       const reviewIndex = state.globalState.reviewsInfo.length;
       const reviewInfo = state.globalState.reviewsInfo;
 
-    const currentReview = () => {
+// actions
+const reviewLeft = (state, actions) => {
+  
+  return (
+    {
+      reviewStatus: {
+        currentReview: globalState.reviewStatus.currentReview - 1
+      }
+    }
+  )
+}
+
+
+const reviewRight = (state, actions) => {
+  console.log("right");
+  //   return (
+  //   {
+  //     reviewStatus: {
+  //       currentReview: globalState.reviewStatus.currentReview + 1
+  //     }
+  //   }
+  // )
+}
+
+
+
+console.log(state.globalState.reviewStatus.currentReview + 1);
+
+
+
+    
+const currentReviewDisplay = () => {
     return (
       <div>
         <h5 className="reviews-title">Reviews</h5>
@@ -26,7 +58,7 @@ export default function Reviews({state, actions}) {
     if(review == 0 ) {
       console.log('do nothing')
     } else {
-      actions.reviewLeft();
+      reviewLeft();
     }
   }
 
@@ -34,7 +66,7 @@ export default function Reviews({state, actions}) {
     if(review == (reviewIndex - 1)) {
       console.log('do nothing')
     } else {
-      actions.reviewRight();
+      reviewRight();
     }
   }
     return (
@@ -45,10 +77,11 @@ export default function Reviews({state, actions}) {
               <img src="https://image.freepik.com/free-photo/chef-with-his-arms-crossed-over-white-background_1368-2792.jpg"/>
             </div>
             <div className="col-md-4">
-                {currentReview()}
+                {currentReviewDisplay()}
                 <div className="arrows">
-                  <i onClick={leftClick} class={`fa fa-arrow-left ${(review > 0) ? 'ready' : ''}`}></i>
+                  <i onclick={leftClick} class={`fa fa-arrow-left ${(review > 0) ? 'ready' : ''}`}></i>
                   <i onclick={rightClick} class={`fa fa-arrow-right ${(review == (reviewIndex - 1)) ? '' : 'ready'}`}></i>
+                  <button onclick={rightClick}>right</button>
               </div>
             </div>
           </div>
