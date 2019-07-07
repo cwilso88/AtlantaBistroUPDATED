@@ -26,7 +26,7 @@ export default function Reviews({state, actions}) {
     if(review == 0 ) {
       console.log('do nothing')
     } else {
-      reviewLeft();
+      actions.reviewLeft();
     }
   }
 
@@ -34,7 +34,7 @@ export default function Reviews({state, actions}) {
     if(review == (reviewIndex - 1)) {
       console.log('do nothing')
     } else {
-      reviewRight();
+      actions.reviewRight();
     }
   }
   console.log(review);

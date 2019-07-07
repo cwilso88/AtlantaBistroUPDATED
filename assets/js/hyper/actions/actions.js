@@ -1,4 +1,4 @@
-export var reviewLeft = function(state) {
+var reviewLeft = function(state) {
   
   return (
   {
@@ -10,7 +10,7 @@ export var reviewLeft = function(state) {
 }
 
 
-export var reviewRight = function(state) {
+var reviewRight = function(state) {
   
     return (
     {
@@ -21,10 +21,10 @@ export var reviewRight = function(state) {
   )
 }
 
-// export const actions = {
-//   reviewLeft,
-//   reviewRight,
-// }
+export const actions = {
+  reviewLeft,
+  reviewRight,
+}
 
 
 

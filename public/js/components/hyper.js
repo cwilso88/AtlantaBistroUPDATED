@@ -9,7 +9,7 @@ webpackJsonp([0],[
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var reviewLeft = exports.reviewLeft = function reviewLeft(state) {
+var reviewLeft = function reviewLeft(state) {
 
   return {
     reviewStatus: {
@@ -18,7 +18,7 @@ var reviewLeft = exports.reviewLeft = function reviewLeft(state) {
   };
 };
 
-var reviewRight = exports.reviewRight = function reviewRight(state) {
+var reviewRight = function reviewRight(state) {
 
   return {
     reviewStatus: {
@@ -27,10 +27,10 @@ var reviewRight = exports.reviewRight = function reviewRight(state) {
   };
 };
 
-// export const actions = {
-//   reviewLeft,
-//   reviewRight,
-// }
+var actions = exports.actions = {
+  reviewLeft: reviewLeft,
+  reviewRight: reviewRight
+};
 
 /***/ }),
 /* 2 */
@@ -669,7 +669,7 @@ function Reviews(_ref) {
     if (review == 0) {
       console.log('do nothing');
     } else {
-      (0, _actions.reviewLeft)();
+      actions.reviewLeft();
     }
   };
 
@@ -677,7 +677,7 @@ function Reviews(_ref) {
     if (review == reviewIndex - 1) {
       console.log('do nothing');
     } else {
-      (0, _actions.reviewRight)();
+      actions.reviewRight();
     }
   };
   console.log(review);
