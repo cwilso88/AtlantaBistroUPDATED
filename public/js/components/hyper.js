@@ -456,22 +456,22 @@ function Header(_ref) {
         null,
         (0, _hyperapp.h)(
           "a",
-          { href: "#" },
+          { href: "#OurStory" },
           "Our Story"
         ),
         (0, _hyperapp.h)(
           "a",
-          { href: "#" },
+          { href: "#SpecialMenu" },
           "Menu"
         ),
         (0, _hyperapp.h)(
           "a",
-          { href: "#" },
+          { href: "#Reviews" },
           "Reviews"
         ),
         (0, _hyperapp.h)(
           "a",
-          { href: "#" },
+          { href: "#ContactUs" },
           "Contact Us"
         )
       )
