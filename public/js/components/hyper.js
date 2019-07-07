@@ -433,7 +433,24 @@ function Header(_ref) {
     (0, _hyperapp.h)(
       "div",
       { className: "container" },
-      (0, _hyperapp.h)("div", { className: "logo" }),
+      (0, _hyperapp.h)(
+        "div",
+        { className: "logo" },
+        (0, _hyperapp.h)(
+          "h3",
+          { className: "logo-header" },
+          "BUCKHEAD GROUP"
+        ),
+        (0, _hyperapp.h)(
+          "div",
+          null,
+          (0, _hyperapp.h)(
+            "h5",
+            { className: "logo-text" },
+            "FINE SKEAKHOUSE"
+          )
+        )
+      ),
       (0, _hyperapp.h)(
         "nav",
         null,

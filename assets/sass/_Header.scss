@@ -7,8 +7,17 @@ header {
 
     .logo {
         display: inline-block;
-        
     }
+
+    .logo-header {
+        text-align: center;
+    }
+
+    .logo-text {
+        background-color: white;
+        padding: 5px; 
+    }
+
 
     nav {
         display: inline-block;
