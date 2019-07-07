@@ -1,17 +1,17 @@
-var reviewLeft = function(state) {
+const reviewLeft = (state, actions) => {
   
   return (
-  {
-    reviewStatus: {
-      currentReview: state.globalState.reviewStatus.currentReview - 1
+    {
+      reviewStatus: {
+        currentReview: state.globalState.reviewStatus.currentReview - 1
+      }
     }
-  }
-)
+  )
 }
 
 
-var reviewRight = function(state) {
-  
+const reviewRight = (state, actions) => {
+
     return (
     {
       reviewStatus: {

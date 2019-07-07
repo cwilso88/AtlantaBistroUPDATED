@@ -37,7 +37,6 @@ export default function Reviews({state, actions}) {
       actions.reviewRight();
     }
   }
-  console.log(review);
     return (
       <section id="Reviews">
         <div className="container">

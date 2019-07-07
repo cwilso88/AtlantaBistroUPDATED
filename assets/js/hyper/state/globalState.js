@@ -93,6 +93,6 @@ export const globalState = {
   quoteInfo,
   reviewsInfo,
   reviewStatus: {
-    currentReview: 2,
+    currentReview: 0,
   }
 }
