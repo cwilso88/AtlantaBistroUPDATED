@@ -852,7 +852,7 @@ function Topimg(_ref) {
           (0, _hyperapp.h)(
             "strong",
             null,
-            "Sat - Sun:"
+            " Sat - Sun:"
           ),
           " 11am - 10pm"
         )
