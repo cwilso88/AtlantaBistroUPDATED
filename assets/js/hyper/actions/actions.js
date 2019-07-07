@@ -1,4 +1,4 @@
-var reviewLeftClicked = function(state, actions) {
+var reviewLeftClicked = function(state) {
   
   return (
   {
@@ -10,7 +10,7 @@ var reviewLeftClicked = function(state, actions) {
 }
 
 
-var reviewRightClicked = function(state, actions) {
+var reviewRightClicked = function(state) {
   
     return (
     {

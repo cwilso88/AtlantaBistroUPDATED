@@ -9,7 +9,7 @@ webpackJsonp([0],[
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var reviewLeftClicked = function reviewLeftClicked(state, actions) {
+var reviewLeftClicked = function reviewLeftClicked(state) {
 
   return {
     reviewStatus: {
@@ -18,7 +18,7 @@ var reviewLeftClicked = function reviewLeftClicked(state, actions) {
   };
 };
 
-var reviewRightClicked = function reviewRightClicked(state, actions) {
+var reviewRightClicked = function reviewRightClicked(state) {
 
   return {
     reviewStatus: {
@@ -672,7 +672,7 @@ function Reviews(_ref) {
       actions.reviewRightClicked();
     }
   };
-
+  console.log(actions);
   return (0, _hyperapp.h)(
     "section",
     { id: "Reviews" },

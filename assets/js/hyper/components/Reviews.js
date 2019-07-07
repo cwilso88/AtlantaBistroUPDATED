@@ -1,4 +1,5 @@
-import {h, app} from 'hyperapp'
+import {h, app} from 'hyperapp';
+
 
 export default function Reviews({state, actions}) {
       console.log(state.globalState.reviewsInfo[state.globalState.reviewStatus.currentReview].company)
@@ -15,7 +16,7 @@ export default function Reviews({state, actions}) {
     )
   }
 
-  var leftClickBTN = function() {
+  const leftClickBTN = () => {
     if(state.reviewStatus.currentReview == 0) {
       console.log('do nothing')
     } else {
@@ -23,14 +24,14 @@ export default function Reviews({state, actions}) {
     }
   }
 
-  var rightClickBTN = function() {
+  const rightClickBTN = () => {
     if(state.globalState.reviewStatus.currentReview == (state.globalState.reviewsInfo.length - 1)) {
       console.log('do nothing')
     } else {
       actions.reviewRightClicked()
     }
   }
-
+  console.log(actions);
     return (
       <section id="Reviews">
         <div className="container">
