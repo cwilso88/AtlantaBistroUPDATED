@@ -9,7 +9,7 @@ webpackJsonp([0],[
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var reviewLeft = function reviewLeft(state) {
+var reviewLeft = exports.reviewLeft = function reviewLeft(state) {
 
   return {
     reviewStatus: {
@@ -18,7 +18,7 @@ var reviewLeft = function reviewLeft(state) {
   };
 };
 
-var reviewRight = function reviewRight(state) {
+var reviewRight = exports.reviewRight = function reviewRight(state) {
 
   return {
     reviewStatus: {
@@ -27,10 +27,10 @@ var reviewRight = function reviewRight(state) {
   };
 };
 
-var actions = exports.actions = {
-  reviewLeft: reviewLeft,
-  reviewRight: reviewRight
-};
+// export const actions = {
+//   reviewLeft,
+//   reviewRight,
+// }
 
 /***/ }),
 /* 2 */
@@ -612,10 +612,6 @@ var _hyperapp = __webpack_require__(0);
 
 var _actions = __webpack_require__(1);
 
-var _actions2 = _interopRequireDefault(_actions);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function Reviews(_ref) {
   var state = _ref.state,
       actions = _ref.actions;
@@ -625,6 +621,7 @@ function Reviews(_ref) {
 
   var review = state.globalState.reviewStatus.currentReview;
   var reviewIndex = state.globalState.reviewsInfo.length;
+  var reviewInfo = state.globalState.reviewsInfo;
 
   var currentReview = function currentReview() {
     return (0, _hyperapp.h)(
@@ -638,17 +635,17 @@ function Reviews(_ref) {
       (0, _hyperapp.h)(
         'h2',
         null,
-        state.globalState.reviewsInfo[state.globalState.reviewStatus.currentReview].company
+        reviewInfo[review].company
       ),
       (0, _hyperapp.h)(
         'h4',
         null,
-        state.globalState.reviewsInfo[state.globalState.reviewStatus.currentReview].highlight
+        reviewInfo[review].highlight
       ),
       (0, _hyperapp.h)(
         'p',
         null,
-        state.globalState.reviewsInfo[state.globalState.reviewStatus.currentReview].review
+        reviewInfo[review].review
       ),
       (0, _hyperapp.h)(
         'div',
@@ -656,13 +653,13 @@ function Reviews(_ref) {
         (0, _hyperapp.h)(
           'strong',
           null,
-          state.globalState.reviewsInfo[state.globalState.reviewStatus.currentReview].author
+          reviewInfo[review].author
         ),
         '- ',
         (0, _hyperapp.h)(
           'em',
           null,
-          state.globalState.reviewsInfo[state.globalState.reviewStatus.currentReview].authorInfo
+          reviewInfo[review].authorInfo
         )
       )
     );
@@ -672,7 +669,7 @@ function Reviews(_ref) {
     if (review == 0) {
       console.log('do nothing');
     } else {
-      actions.reviewLeft();
+      (0, _actions.reviewLeft)();
     }
   };
 
@@ -680,7 +677,7 @@ function Reviews(_ref) {
     if (review == reviewIndex - 1) {
       console.log('do nothing');
     } else {
-      actions.reviewRight();
+      (0, _actions.reviewRight)();
     }
   };
   console.log(review);
