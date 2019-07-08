@@ -6,31 +6,33 @@ webpackJsonp([0],[
 "use strict";
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
 var reviewLeft = function reviewLeft(state, actions) {
 
-  return {
-    reviewStatus: {
-      currentReview: state.globalState.reviewStatus.currentReview - 1
-    }
-  };
+  // return (
+  //   {
+  //     reviewStatus: {
+  //       currentReview: state.globalState.reviewStatus.currentReview - 1
+  //     }
+  //   }
+  // )
 };
 
-var reviewRight = function reviewRight(state, actions) {
-  console.log(currentReview + 1);
-  return {
-    reviewStatus: {
-      currentReview: state.globalState.reviewStatus.currentReview + 1
-    }
-  };
-};
+var reviewRight = function reviewRight(state, actions) {}
+// console.log(currentReview + 1);
+//   return (
+//   {
+//     reviewStatus: {
+//       currentReview: state.globalState.reviewStatus.currentReview + 1
+//     }
+//   }
+// )
 
-var actions = exports.actions = {
-  reviewLeft: reviewLeft,
-  reviewRight: reviewRight
-};
+
+// export const actions = {
+//   reviewLeft,
+//   reviewRight,
+// }
+;
 
 /***/ }),
 /* 2 */
@@ -614,40 +616,62 @@ function Reviews(_ref) {
   var state = _ref.state,
       actions = _ref.actions;
 
-  console.log(state.globalState.reviewsInfo[state.globalState.currentReview].company);
+  console.log(state.globalState.reviewsInfo[state.globalState.currentReview]);
+  console.log(state.globalState.reviewsInfo[state.globalState.currentReview + 1]);
+
   var globalState = state.globalState;
 
   var currentReview = state.globalState.currentReview;
   var reviewIndex = state.globalState.reviewsInfo.length;
   var reviewInfo = state.globalState.reviewsInfo;
 
+  console.log(currentReview + 1);
   // actions
-  // const reviewLeft = (state, actions) => {
-  //   const { currentReview } = globalState;
-
-  //   console.log(currentReview - 1);
-  //   // return (
-  //   //   {
-  //   //     reviewStatus: {
-  //   //       currentReview: globalState.currentReview - 1
-  //   //     }
-  //   //   }
-  //   // )
-  // }
+  var reviewLeft = function reviewLeft(state, actions) {
+    var currentReview = globalState.currentReview;
 
 
-  // const reviewRight = (state, actions) => {
-  //   const { currentReview } = globalState;
+    console.log('left');
+    // return (
+    //   {
+    //     reviewStatus: {
+    //       currentReview: globalState.currentReview - 1
+    //     }
+    //   }
+    // )
+  };
 
-  //   console.log(currentReview + 1);
+  var reviewRight = function reviewRight(state, actions) {
+    var currentReview = globalState.currentReview;
 
-  //   //   return (
-  //   //   {
-  //   //     currentReview: currentReview + 1
-  //   //   }
-  //   // )
-  // }
 
+    console.log(state.globalState.currentReview + 1);
+
+    return {
+      currentReview: currentReview + 1
+    };
+  };
+
+  var leftClick = function leftClick(state, actions) {
+    var currentReview = state.globalState.currentReview;
+
+    if (state.globalState.currentReview == 0) {
+      console.log('do nothing');
+    } else {
+      actions.reviewLeft();
+    }
+  };
+
+  var rightClick = function rightClick(state, actions) {
+    var globalState = state.globalState;
+
+
+    if (state.globalState.currentReview == reviewIndex - 1) {
+      console.log('do nothing');
+    }
+  };
+
+  console.log(state.globalState.currentReview);
 
   var currentReviewDisplay = function currentReviewDisplay(state, actions) {
     return (0, _hyperapp.h)(
@@ -674,11 +698,6 @@ function Reviews(_ref) {
         reviewInfo[currentReview].review
       ),
       (0, _hyperapp.h)(
-        'p',
-        null,
-        currentReview
-      ),
-      (0, _hyperapp.h)(
         'div',
         { className: 'author' },
         (0, _hyperapp.h)(
@@ -696,21 +715,6 @@ function Reviews(_ref) {
     );
   };
 
-  var leftClick = function leftClick(state, actions) {
-    if (currentReview == 0) {
-      console.log('do nothing');
-    } else {
-      actions.reviewLeft();
-    }
-  };
-
-  var rightClick = function rightClick(state, actions) {
-    if (currentReview == reviewIndex - 1) {
-      console.log('do nothing');
-    } else {
-      actions.reviewRight(1);
-    }
-  };
   return (0, _hyperapp.h)(
     'section',
     { id: 'Reviews' },
@@ -732,10 +736,10 @@ function Reviews(_ref) {
           (0, _hyperapp.h)(
             'div',
             { className: 'arrows' },
+            (0, _hyperapp.h)('i', { onclick: rightClick, 'class': 'fa fa-arrow-left ' + (currentReview > 0 ? 'ready' : '') }),
             (0, _hyperapp.h)('i', { onclick: function onclick() {
-                return actions.rightClick();
-              }, 'class': 'fa fa-arrow-left ' + (currentReview > 0 ? 'ready' : '') }),
-            (0, _hyperapp.h)('i', { onclick: actions.rightClick, 'class': 'fa fa-arrow-right ' + (currentReview == reviewIndex - 1 ? '' : 'ready') })
+                return console.log(state.globalState.currentReview + 1);
+              }, 'class': 'fa fa-arrow-right ' + (currentReview == reviewIndex - 1 ? '' : 'ready') })
           )
         )
       )
@@ -928,16 +932,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     return (0, _hyperapp.h)(_App2.default, { state: state, actions: actions });
   },
   root: document.getElementById('app'),
-  actions: {
-    reviewRight: function reviewRight(value) {
-      return function (state) {
-        return { currentReview: state.globalState.currentReview + 1 };
-      };
-    },
-    reviewLeft: function reviewLeft(state, actions) {
-      return { currentReview: state.globalState.currentReview - 1 };
-    }
-  },
+  actions: { actions: _actions.actions },
   events: {
     action: function action(state, actions, _ref) {
       var name = _ref.name,
