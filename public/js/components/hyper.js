@@ -697,7 +697,7 @@ function Reviews(_ref) {
   };
 
   var leftClick = function leftClick(state, actions) {
-    if (review == 0) {
+    if (currentReview == 0) {
       console.log('do nothing');
     } else {
       actions.reviewLeft();
@@ -705,7 +705,7 @@ function Reviews(_ref) {
   };
 
   var rightClick = function rightClick(state, actions) {
-    if (review == reviewIndex - 1) {
+    if (currentReview == reviewIndex - 1) {
       console.log('do nothing');
     } else {
       actions.reviewRight(1);
@@ -734,8 +734,8 @@ function Reviews(_ref) {
             { className: 'arrows' },
             (0, _hyperapp.h)('i', { onclick: function onclick() {
                 return actions.rightClick();
-              }, 'class': 'fa fa-arrow-left ' + (review > 0 ? 'ready' : '') }),
-            (0, _hyperapp.h)('i', { onclick: actions.rightClick, 'class': 'fa fa-arrow-right ' + (review == reviewIndex - 1 ? '' : 'ready') })
+              }, 'class': 'fa fa-arrow-left ' + (currentReview > 0 ? 'ready' : '') }),
+            (0, _hyperapp.h)('i', { onclick: actions.rightClick, 'class': 'fa fa-arrow-right ' + (currentReview == reviewIndex - 1 ? '' : 'ready') })
           )
         )
       )
