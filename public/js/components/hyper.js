@@ -186,7 +186,7 @@ var globalState = exports.globalState = {
   menuInfo: menuInfo,
   quoteInfo: quoteInfo,
   reviewsInfo: reviewsInfo,
-  currentReview: 2
+  currentReview: 0
 };
 
 /***/ }),
@@ -927,8 +927,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   },
   root: document.getElementById('app'),
   actions: {
-    reviewRight: function reviewRight(state, actions) {
-      return { currentReview: state.globalState.currentReview + 1 };
+    reviewRight: function reviewRight(value) {
+      return function (state) {
+        return { currentReview: state.currentReview - value };
+      };
     },
     reviewLeft: function reviewLeft(state, actions) {
       return { currentReview: state.globalState.currentReview - 1 };

@@ -92,5 +92,5 @@ export const globalState = {
   menuInfo,
   quoteInfo,
   reviewsInfo,
-  currentReview: 2,
+  currentReview: 0,
 }
