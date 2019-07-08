@@ -11,7 +11,7 @@ const reviewLeft = (state, actions) => {
 
 
 const reviewRight = (state, actions) => {
-
+  console.log(currentReview + 1);
     return (
     {
       reviewStatus: {

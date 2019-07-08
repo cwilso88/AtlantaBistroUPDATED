@@ -19,7 +19,7 @@ var reviewLeft = function reviewLeft(state, actions) {
 };
 
 var reviewRight = function reviewRight(state, actions) {
-
+  console.log(currentReview + 1);
   return {
     reviewStatus: {
       currentReview: state.globalState.reviewStatus.currentReview + 1
@@ -34,6 +34,74 @@ var actions = exports.actions = {
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = App;
+
+var _hyperapp = __webpack_require__(0);
+
+var _Header = __webpack_require__(6);
+
+var _Header2 = _interopRequireDefault(_Header);
+
+var _Topimg = __webpack_require__(11);
+
+var _Topimg2 = _interopRequireDefault(_Topimg);
+
+var _OurStory = __webpack_require__(7);
+
+var _OurStory2 = _interopRequireDefault(_OurStory);
+
+var _SpecialMenu = __webpack_require__(10);
+
+var _SpecialMenu2 = _interopRequireDefault(_SpecialMenu);
+
+var _RandomQuote = __webpack_require__(8);
+
+var _RandomQuote2 = _interopRequireDefault(_RandomQuote);
+
+var _Reviews = __webpack_require__(9);
+
+var _Reviews2 = _interopRequireDefault(_Reviews);
+
+var _ContactUs = __webpack_require__(4);
+
+var _ContactUs2 = _interopRequireDefault(_ContactUs);
+
+var _Footer = __webpack_require__(5);
+
+var _Footer2 = _interopRequireDefault(_Footer);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function App(_ref) {
+  var state = _ref.state,
+      actions = _ref.actions;
+
+  return (0, _hyperapp.h)(
+    'div',
+    { 'class': 'app' },
+    (0, _hyperapp.h)(_Header2.default, { state: state, actions: actions }),
+    (0, _hyperapp.h)(_Topimg2.default, { state: state, actions: actions }),
+    (0, _hyperapp.h)(_OurStory2.default, { state: state, actions: actions }),
+    (0, _hyperapp.h)(_SpecialMenu2.default, { state: state, actions: actions }),
+    (0, _hyperapp.h)(_RandomQuote2.default, { state: state, actions: actions }),
+    (0, _hyperapp.h)(_Reviews2.default, { state: state, actions: actions }),
+    (0, _hyperapp.h)(_ContactUs2.default, { state: state, actions: actions }),
+    (0, _hyperapp.h)(_Footer2.default, { state: state, actions: actions })
+  );
+}
+// <Header state={state} actions={actions}/>
+// <Button state={state} actions={actions}/>
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -118,78 +186,8 @@ var globalState = exports.globalState = {
   menuInfo: menuInfo,
   quoteInfo: quoteInfo,
   reviewsInfo: reviewsInfo,
-  reviewStatus: {
-    currentReview: 2
-  }
+  currentReview: 2
 };
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = App;
-
-var _hyperapp = __webpack_require__(0);
-
-var _Header = __webpack_require__(6);
-
-var _Header2 = _interopRequireDefault(_Header);
-
-var _Topimg = __webpack_require__(11);
-
-var _Topimg2 = _interopRequireDefault(_Topimg);
-
-var _OurStory = __webpack_require__(7);
-
-var _OurStory2 = _interopRequireDefault(_OurStory);
-
-var _SpecialMenu = __webpack_require__(10);
-
-var _SpecialMenu2 = _interopRequireDefault(_SpecialMenu);
-
-var _RandomQuote = __webpack_require__(8);
-
-var _RandomQuote2 = _interopRequireDefault(_RandomQuote);
-
-var _Reviews = __webpack_require__(9);
-
-var _Reviews2 = _interopRequireDefault(_Reviews);
-
-var _ContactUs = __webpack_require__(4);
-
-var _ContactUs2 = _interopRequireDefault(_ContactUs);
-
-var _Footer = __webpack_require__(5);
-
-var _Footer2 = _interopRequireDefault(_Footer);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function App(_ref) {
-  var state = _ref.state,
-      actions = _ref.actions;
-
-  return (0, _hyperapp.h)(
-    'div',
-    { 'class': 'app' },
-    (0, _hyperapp.h)(_Header2.default, { state: state, actions: actions }),
-    (0, _hyperapp.h)(_Topimg2.default, { state: state, actions: actions }),
-    (0, _hyperapp.h)(_OurStory2.default, { state: state, actions: actions }),
-    (0, _hyperapp.h)(_SpecialMenu2.default, { state: state, actions: actions }),
-    (0, _hyperapp.h)(_RandomQuote2.default, { state: state, actions: actions }),
-    (0, _hyperapp.h)(_Reviews2.default, { state: state, actions: actions }),
-    (0, _hyperapp.h)(_ContactUs2.default, { state: state, actions: actions }),
-    (0, _hyperapp.h)(_Footer2.default, { state: state, actions: actions })
-  );
-}
-// <Header state={state} actions={actions}/>
-// <Button state={state} actions={actions}/>
 
 /***/ }),
 /* 4 */
@@ -610,43 +608,46 @@ exports.default = Reviews;
 
 var _hyperapp = __webpack_require__(0);
 
-var _globalState = __webpack_require__(2);
-
 var _actions = __webpack_require__(1);
 
 function Reviews(_ref) {
   var state = _ref.state,
       actions = _ref.actions;
 
-  console.log(state.globalState.reviewsInfo[state.globalState.reviewStatus.currentReview].company);
+  console.log(state.globalState.reviewsInfo[state.globalState.currentReview].company);
   var globalState = state.globalState;
 
-  var review = state.globalState.reviewStatus.currentReview;
+  var review = state.globalState.currentReview;
   var reviewIndex = state.globalState.reviewsInfo.length;
   var reviewInfo = state.globalState.reviewsInfo;
 
   // actions
   var reviewLeft = function reviewLeft(state, actions) {
+    var currentReview = globalState.currentReview;
 
-    return {
-      reviewStatus: {
-        currentReview: globalState.reviewStatus.currentReview - 1
-      }
-    };
-  };
 
-  var reviewRight = function reviewRight(state, actions) {
-    console.log("right");
-    //   return (
+    console.log(currentReview - 1);
+    // return (
     //   {
     //     reviewStatus: {
-    //       currentReview: globalState.reviewStatus.currentReview + 1
+    //       currentReview: globalState.currentReview - 1
     //     }
     //   }
     // )
   };
 
-  console.log(state.globalState.reviewStatus.currentReview + 1);
+  var reviewRight = function reviewRight(state, actions) {
+    var currentReview = globalState.currentReview;
+
+
+    console.log(currentReview + 1);
+
+    //   return (
+    //   {
+    //     currentReview: currentReview + 1
+    //   }
+    // )
+  };
 
   var currentReviewDisplay = function currentReviewDisplay() {
     return (0, _hyperapp.h)(
@@ -723,16 +724,12 @@ function Reviews(_ref) {
           'div',
           { className: 'col-md-4' },
           currentReviewDisplay(),
+          rightClick(),
           (0, _hyperapp.h)(
             'div',
             { className: 'arrows' },
             (0, _hyperapp.h)('i', { onclick: leftClick, 'class': 'fa fa-arrow-left ' + (review > 0 ? 'ready' : '') }),
-            (0, _hyperapp.h)('i', { onclick: rightClick, 'class': 'fa fa-arrow-right ' + (review == reviewIndex - 1 ? '' : 'ready') }),
-            (0, _hyperapp.h)(
-              'button',
-              { onclick: rightClick },
-              'right'
-            )
+            (0, _hyperapp.h)('i', { onclick: rightClick, 'class': 'fa fa-arrow-right ' + (review == reviewIndex - 1 ? '' : 'ready') })
           )
         )
       )
@@ -909,11 +906,11 @@ function Topimg(_ref) {
 
 var _hyperapp = __webpack_require__(0);
 
-var _globalState = __webpack_require__(2);
+var _globalState = __webpack_require__(3);
 
 var _actions = __webpack_require__(1);
 
-var _App = __webpack_require__(3);
+var _App = __webpack_require__(2);
 
 var _App2 = _interopRequireDefault(_App);
 
