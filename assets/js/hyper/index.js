@@ -8,7 +8,7 @@ app({
   view: (state, actions) => <App state={state} actions={actions} />,
   root: document.getElementById('app'),
   actions: {
-    reviewRight: value => state => ({ currentReview: state.currentReview - value }),
+    reviewRight: value => state => ({ currentReview: state.globalState.currentReview + 1}),
     reviewLeft: (state, actions) => {
       return { currentReview: state.globalState.currentReview - 1 }
     }

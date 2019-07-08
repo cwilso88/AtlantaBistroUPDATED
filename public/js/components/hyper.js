@@ -617,7 +617,7 @@ function Reviews(_ref) {
   console.log(state.globalState.reviewsInfo[state.globalState.currentReview].company);
   var globalState = state.globalState;
 
-  var review = state.globalState.currentReview;
+  var currentReview = state.globalState.currentReview;
   var reviewIndex = state.globalState.reviewsInfo.length;
   var reviewInfo = state.globalState.reviewsInfo;
 
@@ -661,22 +661,22 @@ function Reviews(_ref) {
       (0, _hyperapp.h)(
         'h2',
         null,
-        reviewInfo[review].company
+        reviewInfo[currentReview].company
       ),
       (0, _hyperapp.h)(
         'h4',
         null,
-        reviewInfo[review].highlight
+        reviewInfo[currentReview].highlight
       ),
       (0, _hyperapp.h)(
         'p',
         null,
-        reviewInfo[review].review
+        reviewInfo[currentReview].review
       ),
       (0, _hyperapp.h)(
         'p',
         null,
-        review
+        currentReview
       ),
       (0, _hyperapp.h)(
         'div',
@@ -684,13 +684,13 @@ function Reviews(_ref) {
         (0, _hyperapp.h)(
           'strong',
           null,
-          reviewInfo[review].author
+          reviewInfo[currentReview].author
         ),
         '- ',
         (0, _hyperapp.h)(
           'em',
           null,
-          reviewInfo[review].authorInfo
+          reviewInfo[currentReview].authorInfo
         )
       )
     );
@@ -708,7 +708,7 @@ function Reviews(_ref) {
     if (review == reviewIndex - 1) {
       console.log('do nothing');
     } else {
-      actions.reviewRight();
+      actions.reviewRight(1);
     }
   };
   return (0, _hyperapp.h)(
@@ -732,7 +732,9 @@ function Reviews(_ref) {
           (0, _hyperapp.h)(
             'div',
             { className: 'arrows' },
-            (0, _hyperapp.h)('i', { onclick: actions.leftClick, 'class': 'fa fa-arrow-left ' + (review > 0 ? 'ready' : '') }),
+            (0, _hyperapp.h)('i', { onclick: function onclick() {
+                return actions.rightClick();
+              }, 'class': 'fa fa-arrow-left ' + (review > 0 ? 'ready' : '') }),
             (0, _hyperapp.h)('i', { onclick: actions.rightClick, 'class': 'fa fa-arrow-right ' + (review == reviewIndex - 1 ? '' : 'ready') })
           )
         )
@@ -929,7 +931,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
   actions: {
     reviewRight: function reviewRight(value) {
       return function (state) {
-        return { currentReview: state.currentReview - value };
+        return { currentReview: state.globalState.currentReview + 1 };
       };
     },
     reviewLeft: function reviewLeft(state, actions) {
