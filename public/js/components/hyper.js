@@ -622,37 +622,34 @@ function Reviews(_ref) {
   var reviewInfo = state.globalState.reviewsInfo;
 
   // actions
-  var reviewLeft = function reviewLeft(state, actions) {
-    var currentReview = globalState.currentReview;
+  // const reviewLeft = (state, actions) => {
+  //   const { currentReview } = globalState;
+
+  //   console.log(currentReview - 1);
+  //   // return (
+  //   //   {
+  //   //     reviewStatus: {
+  //   //       currentReview: globalState.currentReview - 1
+  //   //     }
+  //   //   }
+  //   // )
+  // }
 
 
-    console.log(currentReview - 1);
-    // return (
-    //   {
-    //     reviewStatus: {
-    //       currentReview: globalState.currentReview - 1
-    //     }
-    //   }
-    // )
-  };
+  // const reviewRight = (state, actions) => {
+  //   const { currentReview } = globalState;
 
-  var reviewRight = function reviewRight(state, actions) {
-    var currentReview = globalState.currentReview;
+  //   console.log(currentReview + 1);
 
+  //   //   return (
+  //   //   {
+  //   //     currentReview: currentReview + 1
+  //   //   }
+  //   // )
+  // }
 
-    console.log(currentReview + 1);
-
-    //   return (
-    //   {
-    //     currentReview: currentReview + 1
-    //   }
-    // )
-  };
 
   var currentReviewDisplay = function currentReviewDisplay(state, actions) {
-    var currentReview = globalState.currentReview;
-
-    console.log(currentReview + 1);
     return (0, _hyperapp.h)(
       'div',
       null,
@@ -925,7 +922,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     return (0, _hyperapp.h)(_App2.default, { state: state, actions: actions });
   },
   root: document.getElementById('app'),
-  actions: { actions: _actions.actions },
+  actions: {
+    reviewRight: function reviewRight(state, actions) {
+      return { currentReview: state.globalState.currentReview + 1 };
+    },
+    reviewLeft: function reviewLeft(state, actions) {
+      return { currentReview: state.globalState.currentReview - 1 };
+    }
+  },
   events: {
     action: function action(state, actions, _ref) {
       var name = _ref.name,

@@ -1,5 +1,5 @@
 import {h, app} from 'hyperapp';
-import { actions } from '../actions/actions'
+import {actions} from '../actions/actions';
 
 export default function Reviews({state, actions}) {
       console.log(state.globalState.reviewsInfo[state.globalState.currentReview].company)
@@ -9,39 +9,37 @@ export default function Reviews({state, actions}) {
       const reviewInfo = state.globalState.reviewsInfo;
 
 // actions
-const reviewLeft = (state, actions) => {
-  const { currentReview } = globalState;
+// const reviewLeft = (state, actions) => {
+//   const { currentReview } = globalState;
 
-  console.log(currentReview - 1);
-  // return (
-  //   {
-  //     reviewStatus: {
-  //       currentReview: globalState.currentReview - 1
-  //     }
-  //   }
-  // )
-}
+//   console.log(currentReview - 1);
+//   // return (
+//   //   {
+//   //     reviewStatus: {
+//   //       currentReview: globalState.currentReview - 1
+//   //     }
+//   //   }
+//   // )
+// }
 
 
-const reviewRight = (state, actions) => {
-  const { currentReview } = globalState;
+// const reviewRight = (state, actions) => {
+//   const { currentReview } = globalState;
 
-  console.log(currentReview + 1);
+//   console.log(currentReview + 1);
   
-  //   return (
-  //   {
-  //     currentReview: currentReview + 1
-  //   }
-  // )
-}
+//   //   return (
+//   //   {
+//   //     currentReview: currentReview + 1
+//   //   }
+//   // )
+// }
 
 
 
 
     
 const currentReviewDisplay = (state, actions) => {
-  const { currentReview } = globalState;
-  console.log(currentReview + 1);
     return (
       <div>
         <h5 className="reviews-title">Reviews</h5>

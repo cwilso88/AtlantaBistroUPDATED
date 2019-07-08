@@ -7,7 +7,14 @@ app({
   state: {globalState},
   view: (state, actions) => <App state={state} actions={actions} />,
   root: document.getElementById('app'),
-  actions: {actions},
+  actions: {
+    reviewRight: (state, actions) => {
+      return { currentReview: state.globalState.currentReview + 1 }
+    },
+    reviewLeft: (state, actions) => {
+      return { currentReview: state.globalState.currentReview - 1 }
+    }
+  },
   events: {
     action(state, actions, { name, data }) {
       console.group("Action Info")
