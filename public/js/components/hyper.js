@@ -736,7 +736,9 @@ function Reviews(_ref) {
           (0, _hyperapp.h)(
             'div',
             { className: 'arrows' },
-            (0, _hyperapp.h)('i', { onclick: rightClick, 'class': 'fa fa-arrow-left ' + (currentReview > 0 ? 'ready' : '') }),
+            (0, _hyperapp.h)('i', { onclick: function onclick() {
+                return console.log(state.globalState.currentReview - 1);
+              }, 'class': 'fa fa-arrow-left ' + (currentReview > 0 ? 'ready' : '') }),
             (0, _hyperapp.h)('i', { onclick: function onclick() {
                 return console.log(state.globalState.currentReview + 1);
               }, 'class': 'fa fa-arrow-right ' + (currentReview == reviewIndex - 1 ? '' : 'ready') })

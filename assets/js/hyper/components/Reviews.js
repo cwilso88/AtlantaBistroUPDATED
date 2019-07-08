@@ -82,7 +82,7 @@ console.log(state.globalState.currentReview);
             <div className="col-md-4">
                 {currentReviewDisplay()}
                 <div className="arrows">
-                  <i onclick={rightClick} class={`fa fa-arrow-left ${(currentReview > 0) ? 'ready' : ''}`}></i>
+                  <i onclick={() => console.log(state.globalState.currentReview - 1)} class={`fa fa-arrow-left ${(currentReview > 0) ? 'ready' : ''}`}></i>
                   <i onclick={() => console.log(state.globalState.currentReview + 1)} class={`fa fa-arrow-right ${(currentReview == (reviewIndex - 1)) ? '' : 'ready'}`}></i>
               </div>
             </div>

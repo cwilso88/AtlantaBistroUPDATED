@@ -86,7 +86,7 @@ var quoteInfo = [
 ]
 
 
-export const globalState = {
+export var globalState = {
   count: 0, 
   companyInfo,
   menuInfo,
@@ -94,3 +94,4 @@ export const globalState = {
   reviewsInfo,
   currentReview: 0,
 }
+
