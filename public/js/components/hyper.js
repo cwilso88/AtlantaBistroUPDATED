@@ -649,7 +649,10 @@ function Reviews(_ref) {
     // )
   };
 
-  var currentReviewDisplay = function currentReviewDisplay() {
+  var currentReviewDisplay = function currentReviewDisplay(state, actions) {
+    var currentReview = globalState.currentReview;
+
+    console.log(currentReview + 1);
     return (0, _hyperapp.h)(
       'div',
       null,

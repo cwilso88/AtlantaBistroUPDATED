@@ -11,7 +11,7 @@ export default function Reviews({state, actions}) {
 // actions
 const reviewLeft = (state, actions) => {
   const { currentReview } = globalState;
-  
+
   console.log(currentReview - 1);
   // return (
   //   {
@@ -39,7 +39,9 @@ const reviewRight = (state, actions) => {
 
 
     
-const currentReviewDisplay = () => {
+const currentReviewDisplay = (state, actions) => {
+  const { currentReview } = globalState;
+  console.log(currentReview + 1);
     return (
       <div>
         <h5 className="reviews-title">Reviews</h5>
