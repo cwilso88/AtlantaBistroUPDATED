@@ -674,6 +674,11 @@ function Reviews(_ref) {
         reviewInfo[review].review
       ),
       (0, _hyperapp.h)(
+        'p',
+        null,
+        review
+      ),
+      (0, _hyperapp.h)(
         'div',
         { className: 'author' },
         (0, _hyperapp.h)(
@@ -691,19 +696,19 @@ function Reviews(_ref) {
     );
   };
 
-  var leftClick = function leftClick() {
+  var leftClick = function leftClick(state, actions) {
     if (review == 0) {
       console.log('do nothing');
     } else {
-      reviewLeft();
+      actions.reviewLeft();
     }
   };
 
-  var rightClick = function rightClick() {
+  var rightClick = function rightClick(state, actions) {
     if (review == reviewIndex - 1) {
       console.log('do nothing');
     } else {
-      reviewRight();
+      actions.reviewRight();
     }
   };
   return (0, _hyperapp.h)(
@@ -724,12 +729,11 @@ function Reviews(_ref) {
           'div',
           { className: 'col-md-4' },
           currentReviewDisplay(),
-          rightClick(),
           (0, _hyperapp.h)(
             'div',
             { className: 'arrows' },
-            (0, _hyperapp.h)('i', { onclick: leftClick, 'class': 'fa fa-arrow-left ' + (review > 0 ? 'ready' : '') }),
-            (0, _hyperapp.h)('i', { onclick: rightClick, 'class': 'fa fa-arrow-right ' + (review == reviewIndex - 1 ? '' : 'ready') })
+            (0, _hyperapp.h)('i', { onclick: actions.leftClick, 'class': 'fa fa-arrow-left ' + (review > 0 ? 'ready' : '') }),
+            (0, _hyperapp.h)('i', { onclick: actions.rightClick, 'class': 'fa fa-arrow-right ' + (review == reviewIndex - 1 ? '' : 'ready') })
           )
         )
       )

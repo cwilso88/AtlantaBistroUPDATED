@@ -46,25 +46,26 @@ const currentReviewDisplay = (state, actions) => {
         <h2>{reviewInfo[review].company}</h2>
         <h4>{reviewInfo[review].highlight}</h4>
         <p>{reviewInfo[review].review}</p>
+        <p>{review}</p>
       
         <div className="author"><strong>{reviewInfo[review].author}</strong>- <em>{reviewInfo[review].authorInfo}</em></div>
       </div>
     )
   }
 
-  const leftClick = () => {
+  const leftClick = (state, actions) => {
     if(review == 0 ) {
       console.log('do nothing')
     } else {
-      reviewLeft();
+      actions.reviewLeft();
     }
   }
 
-  const rightClick = () => {
+  const rightClick = (state, actions) => {
     if(review == (reviewIndex - 1)) {
       console.log('do nothing')
     } else {
-        reviewRight();
+        actions.reviewRight();
     }
   }
     return (
@@ -76,10 +77,9 @@ const currentReviewDisplay = (state, actions) => {
             </div>
             <div className="col-md-4">
                 {currentReviewDisplay()}
-                {rightClick()}
                 <div className="arrows">
-                  <i onclick={leftClick} class={`fa fa-arrow-left ${(review > 0) ? 'ready' : ''}`}></i>
-                  <i onclick={rightClick} class={`fa fa-arrow-right ${(review == (reviewIndex - 1)) ? '' : 'ready'}`}></i>
+                  <i onclick={actions.leftClick} class={`fa fa-arrow-left ${(review > 0) ? 'ready' : ''}`}></i>
+                  <i onclick={actions.rightClick} class={`fa fa-arrow-right ${(review == (reviewIndex - 1)) ? '' : 'ready'}`}></i>
               </div>
             </div>
           </div>
